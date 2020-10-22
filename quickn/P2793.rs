@@ -62,11 +62,11 @@ fn main() {
     );
     let (a, b): (i64, i64) = (scan.token(), scan.token());
     let mut prefix_lcm: Vec<i64> = vec![0, 1];
-    let mut len: Vec<i64> = vec![0, 0, 1];
+    let mut len: Vec<i64> = vec![0, 0];
     let mut res: i64 = 0;
     for p in 2..44 {
         prefix_lcm.push((prefix_lcm[(p-1) as usize]*p)/gcd(prefix_lcm[(p-1) as usize], p));
-        let mut cur_len = 0;
+        let mut cur_len = 1;
         for q in 2..p {
             if p % q != 0 {
                 cur_len = len[q as usize] + 1;
